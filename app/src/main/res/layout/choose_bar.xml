@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MenueChooseArea"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorMenueChooseArea">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menü"
+        android:textSize="40dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.1"
+        android:id="@+id/textView" />
+
+    <Button
+        android:id="@+id/ButtonAn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="AN"
+        android:textSize="30dp"
+        android:onClick="MenueOn"
+        android:layout_weight="0.45"/>
+    <Button
+        android:id="@+id/ButtonAus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Aus"
+        android:textSize="30dp"
+        android:onClick="MenueOff"
+        android:layout_weight="0.45"/>
+</LinearLayout> <!-- 90dp -->

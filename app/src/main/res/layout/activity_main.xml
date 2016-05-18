@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="a1301917.at.ac.univie.hci.seniorapp.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/MenueChooseArea"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.20"
+        android:background="@color/colorMenueChooseArea"
+        android:layout_gravity="center">
+
+        <include layout="@layout/choose_bar"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+    </LinearLayout> <!-- 90dp -->
+
+    <LinearLayout
+        android:id="@+id/InfoArea"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.45"/>
+
+    <LinearLayout
+        android:id="@+id/ButtonArea"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.35"
+        android:background="@color/colorButtonArea"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:textSize="30dp"
+                android:text="Befehl"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:onClick="GiveCommand"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

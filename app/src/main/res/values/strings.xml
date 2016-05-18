@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SeniorApp</string>
+    <string-array name="menue_button_names">
+        <item>Nachrichten</item>
+        <item>Anrufe</item>
+        <item>Kontakte</item>
+        <item>Notruf</item>
+    </string-array>
+</resources>
