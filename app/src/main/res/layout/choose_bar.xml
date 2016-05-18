@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/MenueChooseArea"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorMenueChooseArea">
+    android:layout_height="match_parent"
+    android:background="@color/colorMenueChooseArea"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp">
 
 
     <TextView
@@ -21,7 +23,7 @@
         android:id="@+id/ButtonAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_gravity="center"
         android:text="AN"
         android:textSize="30dp"
         android:onClick="MenueOn"

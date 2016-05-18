@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/border"
     tools:context="a1301917.at.ac.univie.hci.seniorapp.MainActivity">
 
     <LinearLayout
@@ -13,12 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.20"
-        android:background="@color/colorMenueChooseArea"
-        android:layout_gravity="center">
+        android:background="@drawable/border"
+        android:layout_gravity="center"
+        android:padding="1dp">
 
         <include layout="@layout/choose_bar"
             android:layout_gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"/>
 
     </LinearLayout> <!-- 90dp -->
@@ -28,7 +30,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.45"/>
+        android:layout_weight="0.45"
+        android:background="@drawable/border"/>
 
     <LinearLayout
         android:id="@+id/ButtonArea"
@@ -41,7 +44,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
             <Button
                 android:layout_width="150dp"
                 android:layout_height="150dp"
