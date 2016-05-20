@@ -1,32 +1,29 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuMessagesActivity extends AppCompatActivity {
     private String[] menuButtonNames;
-    private static final String TAG = "MenuButtonNames";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menue);
+        setContentView(R.layout.activity_menu_messages);
+
+        menuButtonNames = getResources().getStringArray(R.array.messages_button_names);
 
         final TextView menuButton1 = (TextView) findViewById(R.id.menuButton1);
         final TextView menuButton2 = (TextView) findViewById(R.id.menuButton2);
         final TextView menuButton3 = (TextView) findViewById(R.id.menuButton3);
         final TextView menuButton4 = (TextView) findViewById(R.id.menuButton4);
 
-        menuButtonNames = getResources().getStringArray(R.array.menue_button_names);
-
-
         menuButton1.setText(menuButtonNames[0]);
         menuButton2.setText(menuButtonNames[1]);
         menuButton3.setText(menuButtonNames[2]);
         menuButton4.setText(menuButtonNames[3]);
-
     }
 
     public void MenuOn(View view){
@@ -39,18 +36,8 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void ActionMenuButton1(View view){
-        Intent intent = new Intent(this, MenuMessagesActivity.class);
-        startActivity(intent);
-    }
-
-    public void ActionMenuButton2(View view){
-        Intent intent = new Intent(this, MenuCallsActivity.class);
-        startActivity(intent);
-    }
-
     public void BackToLastState(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 }

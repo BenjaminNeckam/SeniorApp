@@ -6,4 +6,17 @@
         <item>Kontakte</item>
         <item>Notruf</item>
     </string-array>
+    <string-array name="calls_button_names">
+        <item>Kontakt auswählen</item>
+        <item>Nummer eingeben</item>
+        <item>Letzte Anrufe</item>
+        <item>Verpasste Anrufe</item>
+        <item>Nummer eingeben</item>
+    </string-array>
+    <string-array name="messages_button_names">
+        <item>Nachricht erstellen</item>
+        <item>Nachricht lesen</item>
+        <item>Nachricht vorlesen</item>
+        <item>Gesendete Nachrichten</item>
+    </string-array>
 </resources>

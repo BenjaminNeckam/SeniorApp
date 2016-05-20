@@ -20,7 +20,7 @@
             android:padding="3dp"
             android:background="@drawable/border"
             android:layout_weight="1"
-            android:onClick="MenuOff">
+            android:onClick="ActionMenuButton1">
 
             <!--
             <ImageView
@@ -34,7 +34,9 @@
                 android:id="@+id/menuButton1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textSize="30sp" />
             <!-- android:layout_below="@+id/image1" -->
         </RelativeLayout>
 
@@ -43,7 +45,8 @@
             android:layout_height="match_parent"
             android:padding="3dp"
             android:background="@drawable/border"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="ActionMenuButton2">
 
             <!-- ImageView
                 android:id="@+id/image2"
@@ -57,7 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                />
+                android:textAlignment="center"
+                android:textSize="30sp" />
             <!--  android:layout_below="@+id/image2"-->
             </RelativeLayout>
 
@@ -77,7 +81,8 @@
             android:layout_height="match_parent"
             android:padding="3dp"
             android:background="@drawable/border"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="ActionMenuButton3">
 
             <!--
             <ImageView
@@ -91,7 +96,9 @@
                 android:id="@+id/menuButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textSize="30sp"/>
             <!-- android:layout_below="@+id/image4" -->
         </RelativeLayout>
 
@@ -100,7 +107,8 @@
             android:layout_height="match_parent"
             android:padding="3dp"
             android:background="@drawable/border"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:onClick="ActionMenuButton4">
 
             <!--
             <ImageView
@@ -114,7 +122,9 @@
                 android:id="@+id/menuButton4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textSize="30sp"/>
             <!-- android:layout_below="@+id/image5" -->
 
         </RelativeLayout>
