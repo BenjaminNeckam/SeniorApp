@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/MenueChooseArea"
+    android:id="@+id/menuChooseArea"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMenueChooseArea"
@@ -21,21 +21,21 @@
         android:id="@+id/textView" />
 
     <Button
-        android:id="@+id/ButtonAn"
+        android:id="@+id/buttonAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="AN"
         android:textSize="30dp"
-        android:onClick="MenueOn"
+        android:onClick="MenuOn"
         android:layout_weight="0.45"/>
     <Button
-        android:id="@+id/ButtonAus"
+        android:id="@+id/buttonAus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Aus"
         android:textSize="30dp"
-        android:onClick="MenueOff"
+        android:onClick="MenuOff"
         android:layout_weight="0.45"/>
 </LinearLayout> <!-- 90dp -->
