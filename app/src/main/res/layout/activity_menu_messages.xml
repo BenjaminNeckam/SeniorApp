@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="a1301917.at.ac.univie.hci.seniorapp.MenuMessagesActivity">
-    <include layout="@layout/menue_structure"/>
+    <include layout="@layout/menu_structure"/>
 
 </RelativeLayout>

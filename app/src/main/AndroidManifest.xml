@@ -2,10 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="a1301917.at.ac.univie.hci.seniorapp">
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="SeniorApp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -17,7 +21,11 @@
         </activity>
         <activity android:name=".MenuActivity" />
         <activity android:name=".MenuCallsActivity" />
-        <activity android:name=".MenuMessagesActivity"></activity>
+        <activity android:name=".MenuMessagesActivity" />
+        <activity android:name=".WriteMessageActivity" />
+        <activity android:name=".ChooseNumberContactActivity" />
+        <activity android:name=".InsertNumberActivity" />
+        <activity android:name=".ShowContactsActivity" />
     </application>
 
 </manifest>

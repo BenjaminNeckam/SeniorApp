@@ -12,7 +12,7 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menue);
+        setContentView(R.layout.activity_menu);
 
         final TextView menuButton1 = (TextView) findViewById(R.id.menuButton1);
         final TextView menuButton2 = (TextView) findViewById(R.id.menuButton2);
