@@ -20,12 +20,6 @@
             android:layout_width="match_parent"
             android:layout_weight="0.5"/>
 
-        <!-- Eventuell für Orientierung
-                <include layout="@layout/orientation_layout"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:layout_weight="0.5"/> -->
-
     </LinearLayout> <!-- 90dp -->
 
     <LinearLayout
@@ -34,27 +28,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.6">
-        <!-- <GridView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/MenuGrid"
-            android:paddingTop="10dp"
+        <ListView
+            android:id="@+id/callList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnWidth="90dp"
-            android:numColumns="2"
-            android:verticalSpacing="10dp"
-            android:horizontalSpacing="5dp"
-            android:stretchMode="columnWidth"
-            android:gravity="center"
-            /> -->
-        <ListView
-            android:id="@+id/missedCalls"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignWithParentIfMissing="true"
-            android:gravity="center_vertical"
-            android:textSize="46sp" />
+            android:dividerHeight="20dip" />
     </LinearLayout>
 
     <LinearLayout
@@ -80,8 +58,5 @@
         </RelativeLayout>
 
     </LinearLayout>
-
-
-
 
 </LinearLayout>

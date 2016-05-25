@@ -33,6 +33,8 @@
         <activity android:name=".ShowContactsActivity" />
 
         <activity android:name=".MissedCallsActivity" />
+        <activity android:name=".ShowContactsCallActivity" />
+        <activity android:name=".InsertNumberCallActivity" />
 
         <activity android:name=".OutgoingCallsActivity" />
     </application>

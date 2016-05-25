@@ -47,7 +47,12 @@ public class MenuCallsActivity extends AppCompatActivity {
     }
 
     public void ActionMenuButton1(View view){
-        Intent intent = new Intent(this, ChooseNumberContactActivity.class);
+        Intent intent = new Intent(this, ShowContactsCallActivity.class);
+        startActivity(intent);
+    }
+
+    public void ActionMenuButton2(View view){
+        Intent intent = new Intent(this, InsertNumberCallActivity.class);
         startActivity(intent);
     }
 
@@ -59,19 +64,6 @@ public class MenuCallsActivity extends AppCompatActivity {
     public void ActionMenuButton4(View view){
         Intent intent = new Intent(this, MissedCallsActivity.class);
         startActivity(intent);
-    }
-
-    private void doPhoneCall(String phoneNumber) {
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:"+phoneNumber));
-
-        try {
-            startActivity(callIntent);
-            finish();
-        }
-        catch (android.content.ActivityNotFoundException ex) {
-
-        }
     }
 
     public void BackToLastState(View view){

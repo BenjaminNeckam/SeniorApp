@@ -11,15 +11,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OutgoingCallsActivity extends AppCompatActivity {
     private ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_missed_calls);
+        setContentView(R.layout.activity_calls);
 
-        listview = (ListView) findViewById(R.id.missedCalls);
+        listview = (ListView) findViewById(R.id.callList);
 
         String[] projection = {CallLog.Calls.CACHED_NAME, CallLog.Calls.CACHED_NUMBER_LABEL, CallLog.Calls.TYPE};
         String where = CallLog.Calls.TYPE + "=" + CallLog.Calls.OUTGOING_TYPE;
@@ -27,39 +30,42 @@ public class OutgoingCallsActivity extends AppCompatActivity {
         Cursor cursor = this.getContentResolver().query(CallLog.Calls.CONTENT_URI, null, where, null, sortOrder);
         cursor.moveToFirst();
 
-        String[] missedList = new String[10];
-        int counter = 0;
+        List<String> outgoingList = new ArrayList<String>();
 
         while (cursor.moveToNext()) {
+            ContactInfo contactInfo = new ContactInfo();
+
             String callLogID = cursor.getString(cursor.getColumnIndex(CallLog.Calls.CACHED_NAME));
             String callNumber = cursor.getString(cursor.getColumnIndex(CallLog.Calls.NUMBER));
             String callDate = cursor.getString(cursor.getColumnIndex(CallLog.Calls.DATE));
 
-            missedList[counter] = callNumber;
-
-            counter++;
-
-            if (counter == 10) {
-                break;
+            if (callLogID == null) {
+                callLogID = "Unbekannt";
             }
+
+            contactInfo.setName(callLogID);
+            contactInfo.setNumber(callNumber);
+
+            outgoingList.add(contactInfo.toString());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, missedList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outgoingList);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-                    if (position < 0 || position > 9 || listview == null) {
+                    if (listview == null) {
                         return;
                     }
+
                     int itemPosition = position;
                     String itemValue = (String) listview.getItemAtPosition(position);
 
-                    if (itemValue != null) {
-                        doPhoneCall(itemValue);
-                    }
+                    String[] value = itemValue.split("\n");
+
+                    doPhoneCall(value[1]);
                 } catch (Exception e) {
 
                 }
