@@ -49,6 +49,16 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void ActionMenuButton3(View view){
+        Intent intent = new Intent(this, ContactMenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void ActionMenuButton4(View view){
+        Intent intent = new Intent(this, NotrufActivity.class);
+        startActivity(intent);
+    }
+
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
