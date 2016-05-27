@@ -12,6 +12,18 @@
         <item>Letzte Anrufe</item>
         <item>Verpasste Anrufe</item>
     </string-array>
+    <string-array name="notruf_button_names">
+        <item>Rettung anrufen</item>
+        <item>Polizei anrufen</item>
+        <item>Feuerwehr anrufen</item>
+        <item>Notfallkontakt anrufen</item>
+    </string-array>
+    <string-array name="contact_button_names">
+        <item>Kontakt erstellen</item>
+        <item>Kontakt löschen</item>
+        <item>Notfallkontakt festlegen</item>
+        <item></item>
+    </string-array>
     <string-array name="messages_button_names">
         <item>Nachricht erstellen</item>
         <item>Nachricht lesen</item>
