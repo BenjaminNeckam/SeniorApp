@@ -44,7 +44,13 @@ public class MainActivity extends AppCompatActivity {
         senior_handy.dialog("was geht alter", new DialogHandler() {
             @Override
             public void handle(String answer, VoiceAssistant voiceAssistant) {
-
+                Log.i("MainActivity","You said: " + answer);
+                for (ContactInfo info : contacts) {
+                    if (answer.toLowerCase().contains(info.getName().toLowerCase())) {
+                        Log.i("MainActivity","Calling " + info.getName());
+                        Util.doPhoneCall(MainActivity.this, info.getNumber());
+                    }
+                }
             }
         });
     }

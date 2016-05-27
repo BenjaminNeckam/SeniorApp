@@ -1,6 +1,9 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -62,7 +65,11 @@ public class Util {
         return result;
     }
 
-
+    public static void doPhoneCall(Activity activity, String phoneNumber) {
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + phoneNumber));
+        activity.startActivity(callIntent);
+    }
 
 }
 
