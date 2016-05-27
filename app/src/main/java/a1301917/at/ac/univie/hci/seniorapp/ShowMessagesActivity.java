@@ -1,31 +1,22 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
-import android.content.ContentResolver;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
-import android.provider.ContactsContract;
-import android.provider.Telephony;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.Telephony.Sms;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-import android.provider.Telephony.Sms;
 
-import java.net.URI;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ShowMessagesActivity extends AppCompatActivity  {
     ListView listView;
     ArrayList<String> messageListResults;
     private static final String TAG = "Info: ";
+    public final static String EXTRA_MESSAGE = "at.ac.univie.hci.seniorapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +52,10 @@ public class ShowMessagesActivity extends AppCompatActivity  {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*int itemPosition = position;
+                int itemPosition = position;
                 String itemValue = (String) listView.getItemAtPosition(position);
                 String[]contactDetails = itemValue.split("\n");
-                chooseContact(contactDetails[1]);*/
+                ReadSms(contactDetails[0]);
             }
         });
     }
@@ -81,6 +72,13 @@ public class ShowMessagesActivity extends AppCompatActivity  {
 
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MenuMessagesActivity.class);
+        startActivity(intent);
+    }
+
+    public void ReadSms(String message){
+        Intent intent = new Intent(this,ReadMessageActivity.class);
+        //intent.setData(Uri.parse("tel:"+phoneNumber));
+        intent.putExtra(EXTRA_MESSAGE,message);
         startActivity(intent);
     }
 

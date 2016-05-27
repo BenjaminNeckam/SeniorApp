@@ -29,25 +29,27 @@
         <activity android:name=".MenuCallsActivity" />
         <activity android:name=".MenuMessagesActivity" />
         <activity android:name=".MenuActivity" />
-
         <activity android:name=".WriteMessageActivity" />
         <activity android:name=".ChooseNumberContactActivity" />
         <activity android:name=".InsertNumberActivity" />
         <activity android:name=".ShowContactsActivity" />
-
         <activity android:name=".MissedCallsActivity" />
         <activity android:name=".ShowContactsCallActivity" />
         <activity android:name=".InsertNumberCallActivity" />
         <activity android:name=".NotrufActivity" />
         <activity android:name=".ContactMenuActivity" />
         <activity android:name=".ShowContactsNotrufActivity" />
-        <activity android:name=".ShowMessagesActivity"/>
-
-        <activity android:name=".OutgoingCallsActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity android:name=".ShowMessagesActivity" />
+        <activity android:name=".OutgoingCallsActivity" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".ReadMessageActivity"></activity>
     </application>
 
 </manifest>

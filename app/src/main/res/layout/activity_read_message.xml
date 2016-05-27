@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border">
+
+    <LinearLayout
+        android:id="@+id/MenueChooseArea"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.20"
+        android:background="@drawable/border"
+        android:layout_gravity="center"
+        android:padding="1dp">
+
+        <include layout="@layout/choose_bar"
+
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="0.5"/>
+
+        <!-- Eventuell für Orientierung
+                <include layout="@layout/orientation_layout"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_weight="0.5"/> -->
+
+    </LinearLayout> <!-- 90dp -->
+
+    <LinearLayout
+        android:id="@+id/InfoArea"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
+        <TextView
+            android:id="@+id/DisplayMessageArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="35sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ButtonArea"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:background="@color/colorMenueChooseArea"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="30sp"
+                android:text="Zurück"
+                android:onClick="BackToLastState"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
