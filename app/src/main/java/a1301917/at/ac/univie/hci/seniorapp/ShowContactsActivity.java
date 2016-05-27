@@ -1,5 +1,6 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -19,6 +20,7 @@ public class ShowContactsActivity extends AppCompatActivity {
     //List<ContactInfo> contactListResult;
     ArrayList<String> contactListResult;
     private static final String TAG = "Info: ";
+    public final static String EXTRA_MESSAGE = "at.ac.univie.hci.seniorapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +78,35 @@ public class ShowContactsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                int itemPosition = position;
+                String itemValue = (String) listView.getItemAtPosition(position);
+                String[]contactDetails = itemValue.split("\n");
+                chooseContact(contactDetails[1]);
             }
         });
+    }
+
+    public void chooseContact(String phoneNumber){
+        Intent intent = new Intent(this,WriteMessageActivity.class);
+        //intent.setData(Uri.parse("tel:"+phoneNumber));
+        Log.i(TAG,phoneNumber);
+        intent.putExtra(EXTRA_MESSAGE,phoneNumber);
+        startActivity(intent);
+    }
+
+    public void MenuOn(View view){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void MenuOff(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void BackToLastState(View view){
+        Intent intent = new Intent(this, ChooseNumberContactActivity.class);
+        startActivity(intent);
     }
 
     public void searchContact(String contactName){

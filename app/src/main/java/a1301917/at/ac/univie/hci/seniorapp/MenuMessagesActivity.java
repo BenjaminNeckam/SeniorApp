@@ -69,6 +69,11 @@ public class MenuMessagesActivity extends AppCompatActivity {
 
     }
 
+    public void ActionMenuButton2(View view){
+        Intent intent = new Intent(this, ShowMessagesActivity.class);
+        startActivity(intent);
+    }
+
     public void goBackToApp(){
         Intent intent = new Intent(this, MenuMessagesActivity.class);
         startActivity(intent);

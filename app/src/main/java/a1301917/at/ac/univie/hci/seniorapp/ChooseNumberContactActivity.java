@@ -45,4 +45,8 @@ public class ChooseNumberContactActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void BackToLastState(View view){
+        Intent intent = new Intent(this, MenuMessagesActivity.class);
+        startActivity(intent);
+    }
 }

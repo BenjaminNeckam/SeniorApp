@@ -3,6 +3,7 @@
     package="a1301917.at.ac.univie.hci.seniorapp">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -40,6 +41,7 @@
         <activity android:name=".NotrufActivity" />
         <activity android:name=".ContactMenuActivity" />
         <activity android:name=".ShowContactsNotrufActivity" />
+        <activity android:name=".ShowMessagesActivity"/>
 
         <activity android:name=".OutgoingCallsActivity" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->

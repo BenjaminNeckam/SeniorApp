@@ -21,4 +21,19 @@ public class InsertNumberActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE,number);
         startActivity(intent);
     }
+
+    public void MenuOn(View view){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    public void MenuOff(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void BackToLastState(View view){
+        Intent intent = new Intent(this, MenuMessagesActivity.class);
+        startActivity(intent);
+    }
 }
