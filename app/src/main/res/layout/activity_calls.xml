@@ -47,14 +47,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border">
+            android:background="@drawable/border"
+            android:onClick="BackToLastState">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="30sp"
-                android:text="Zurück"
-                android:onClick="BackToLastState"/>
+                android:text="Zurück" />
         </RelativeLayout>
 
     </LinearLayout>

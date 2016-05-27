@@ -1,13 +1,10 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MenuMessagesActivity extends AppCompatActivity {
     private String[] menuButtonNames;
@@ -71,6 +68,16 @@ public class MenuMessagesActivity extends AppCompatActivity {
 
     public void ActionMenuButton2(View view){
         Intent intent = new Intent(this, ShowMessagesActivity.class);
+        startActivity(intent);
+    }
+
+    public void ActionMenuButton3(View view){
+        //Intent intent = new Intent(this, ShowSentMessagesActivity.class);
+        //startActivity(intent);
+    }
+
+    public void ActionMenuButton4(View view){
+        Intent intent = new Intent(this, ShowSentMessagesActivity.class);
         startActivity(intent);
     }
 
