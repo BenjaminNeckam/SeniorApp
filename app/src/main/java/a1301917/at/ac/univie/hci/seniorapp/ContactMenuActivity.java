@@ -53,11 +53,13 @@ public class ContactMenuActivity extends AppCompatActivity {
     }
 
     public void ActionMenuButton1(View view) {
-
+        Intent intent = new Intent(this, AddNumberActivity.class);
+        startActivity(intent);
     }
 
     public void ActionMenuButton2(View view) {
-
+        Intent intent = new Intent(this, ShowContactsDeleteActivity.class);
+        startActivity(intent);
     }
 
     public void ActionMenuButton3(View view) {
