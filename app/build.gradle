@@ -5,7 +5,7 @@ android {
     buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "a1301917.at.ac.univie.hci.seniorapp"
-        minSdkVersion 22
+        minSdkVersion 17
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
