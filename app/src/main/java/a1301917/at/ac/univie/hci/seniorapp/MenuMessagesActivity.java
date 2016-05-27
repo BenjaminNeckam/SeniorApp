@@ -72,8 +72,8 @@ public class MenuMessagesActivity extends AppCompatActivity {
     }
 
     public void ActionMenuButton3(View view){
-        //Intent intent = new Intent(this, ShowSentMessagesActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, MenuMessagesActivity.class);
+        startActivity(intent);
     }
 
     public void ActionMenuButton4(View view){
