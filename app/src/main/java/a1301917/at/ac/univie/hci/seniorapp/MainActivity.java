@@ -13,6 +13,9 @@ import android.view.View;
 import java.util.List;
 import java.util.Vector;
 
+/**
+ * Menü mit Sprachsteuerung
+ */
 public class MainActivity extends AppCompatActivity {
 
     VoiceAssistant senior_handy;
@@ -31,17 +34,29 @@ public class MainActivity extends AppCompatActivity {
         contacts = Util.getContacts(getContentResolver());
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view){
 
     }
 
+    /**
+     * Button zur Befehlsentgegennahme durch Spracherkennung
+     * @param view
+     */
     public void GiveCommand(View view){
-        senior_handy.dialog("was geht alter", new DialogHandler() {
+        senior_handy.dialog("Bitte sprechen Sie", new DialogHandler() {
             @Override
             public void handle(String answer, VoiceAssistant voiceAssistant) {
 
@@ -49,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Überprüfen der Permissions
+     */
     private static final int PERMISSIONS_CORE = 0;
     private void checkAndRequestAllPermissions() {
         Vector<String> permissionRequests = new Vector<>();
@@ -60,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    /**
+     * Weiterleitung der Anfrage bei Berechtigung
+     * @param permission
+     * @param requests
+     */
     private void checkAndPushRequests(String permission, Vector<String> requests) {
         if (ContextCompat.checkSelfPermission(this,permission) != PackageManager.PERMISSION_GRANTED)
             requests.add(permission);

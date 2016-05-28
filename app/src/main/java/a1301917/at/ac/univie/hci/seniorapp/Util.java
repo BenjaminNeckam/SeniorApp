@@ -1,19 +1,15 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 import android.content.ContentResolver;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 /**
- * Created by penderiko on 27.05.16.
+ * Aktivität zum Anzeigen der Kontakte
  */
 public class Util {
     public static List<ContactInfo> getContacts(ContentResolver resolver) {

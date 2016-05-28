@@ -1,11 +1,9 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.CallLog;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,13 +11,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ShowContactsDeleteActivity extends AppCompatActivity {
@@ -158,6 +152,28 @@ public class ShowContactsDeleteActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
+    public void MenuOn(View view){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
+    public void MenuOff(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view) {
         Intent intent = new Intent(this, ContactMenuActivity.class);
         startActivity(intent);

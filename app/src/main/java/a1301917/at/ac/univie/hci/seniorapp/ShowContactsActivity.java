@@ -3,9 +3,9 @@ package a1301917.at.ac.univie.hci.seniorapp;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,8 +13,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Anzeige von Kontakten aus Telefonbuch
+ */
 public class ShowContactsActivity extends AppCompatActivity {
     ListView listView;
     //List<ContactInfo> contactListResult;
@@ -30,6 +32,9 @@ public class ShowContactsActivity extends AppCompatActivity {
         getContacts();
     }
 
+    /**
+     * Alle Kontakte in App laden und anzeigen
+     */
     public void getContacts(){
         String number;
 
@@ -86,6 +91,10 @@ public class ShowContactsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Ausgewählten Kontakt weitergeben um Sms zu schreiben
+     * @param phoneNumber
+     */
     public void chooseContact(String phoneNumber){
         Intent intent = new Intent(this,WriteMessageActivity.class);
         //intent.setData(Uri.parse("tel:"+phoneNumber));
@@ -94,21 +103,38 @@ public class ShowContactsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, ChooseNumberContactActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Soll nur gesuchten Kontatk anzeigen
+     * Keine Zeit mehr in dieser Iteration
+     * @param contactName
+     */
     public void searchContact(String contactName){
          //// TODO: 22.05.2016 Methode implementieren
     }

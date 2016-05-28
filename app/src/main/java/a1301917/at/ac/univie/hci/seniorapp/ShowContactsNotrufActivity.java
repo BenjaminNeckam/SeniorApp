@@ -2,7 +2,6 @@ package a1301917.at.ac.univie.hci.seniorapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +17,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Anzeigen von Kontakten aus Telefonbuch für Notfälle
+ */
 public class ShowContactsNotrufActivity extends AppCompatActivity {
     ListView listView;
     //List<ContactInfo> contactListResult;
@@ -36,6 +38,9 @@ public class ShowContactsNotrufActivity extends AppCompatActivity {
         getContacts();
     }
 
+    /**
+     * Kontakte in App laden und anzeigen
+     */
     public void getContacts(){
         String number;
 
@@ -111,6 +116,28 @@ public class ShowContactsNotrufActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
+    public void MenuOn(View view){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
+    public void MenuOff(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         startActivity(intent);
     }

@@ -12,6 +12,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * Aktivität zum anzeigen der empfangenen Sms
+ */
 public class ShowMessagesActivity extends AppCompatActivity  {
     ListView listView;
     ArrayList<String> messageListResults;
@@ -26,6 +29,9 @@ public class ShowMessagesActivity extends AppCompatActivity  {
         showSms();
     }
 
+    /**
+     * Sms aus Inbox laden und anzeigen
+     */
     public void showSms() {
         String number;
         Cursor cursor = null;
@@ -59,21 +65,37 @@ public class ShowMessagesActivity extends AppCompatActivity  {
         });
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MenuMessagesActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Gewählte SMS lesen
+     * @param message
+     */
     public void ReadSms(String message){
         Intent intent = new Intent(this,ReadMessageActivity.class);
         //intent.setData(Uri.parse("tel:"+phoneNumber));

@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Backup Menü, um Menü auch optisch darstellen zu können
+ */
 public class MenuActivity extends AppCompatActivity {
     private String[] menuButtonNames;
     private static final String TAG = "MenuButtonNames";
@@ -29,36 +32,64 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um MenuMessagesActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton1(View view){
         Intent intent = new Intent(this, MenuMessagesActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um MenuCalssActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton2(View view){
         Intent intent = new Intent(this, MenuCallsActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um ContactMenuActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton3(View view){
         Intent intent = new Intent(this, ContactMenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um NotrufActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton4(View view){
         Intent intent = new Intent(this, NotrufActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

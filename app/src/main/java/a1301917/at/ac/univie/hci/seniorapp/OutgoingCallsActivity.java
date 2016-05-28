@@ -14,6 +14,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Anzeige von getätigten Anrufen
+ */
 public class OutgoingCallsActivity extends AppCompatActivity {
     private ListView listview;
 
@@ -74,16 +77,28 @@ public class OutgoingCallsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Kontakt anrufen
+     * @param phoneNumber
+     */
     private void doPhoneCall(String phoneNumber) {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + phoneNumber));
@@ -96,6 +111,10 @@ public class OutgoingCallsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MenuCallsActivity.class);
         startActivity(intent);

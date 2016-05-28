@@ -7,6 +7,9 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Aktivität zum lesen einer Nachricht
+ */
 public class ReadMessageActivity extends AppCompatActivity {
 
     @Override
@@ -19,16 +22,28 @@ public class ReadMessageActivity extends AppCompatActivity {
         textView.setText(message);
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, ShowMessagesActivity.class);
         startActivity(intent);

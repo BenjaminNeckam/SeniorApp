@@ -8,7 +8,7 @@ import android.util.Log;
 import java.util.Arrays;
 
 /**
- * Created by penderiko on 31.03.16.
+ * Aktivität zum Verarbeiten von Spracheingabe
  */
 public class SRListener implements RecognitionListener {
 

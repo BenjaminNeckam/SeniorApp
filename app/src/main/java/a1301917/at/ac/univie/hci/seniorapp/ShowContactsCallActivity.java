@@ -13,6 +13,9 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * Anzeigen von Kontakten speziell für Anrufe
+ */
 public class ShowContactsCallActivity extends AppCompatActivity {
     ListView listView;
     //List<ContactInfo> contactListResult;
@@ -27,6 +30,9 @@ public class ShowContactsCallActivity extends AppCompatActivity {
         getContacts();
     }
 
+    /**
+     * Alle Kontakte in App laden und anzeigen
+     */
     public void getContacts(){
         String number;
 
@@ -84,6 +90,10 @@ public class ShowContactsCallActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Ausgewählten Kontakt anrufen
+     * @param phoneNumber
+     */
     private void doPhoneCall(String phoneNumber) {
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:"+phoneNumber));
@@ -97,6 +107,29 @@ public class ShowContactsCallActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
+    public void MenuOn(View view){
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
+    public void MenuOff(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MenuCallsActivity.class);
         startActivity(intent);
