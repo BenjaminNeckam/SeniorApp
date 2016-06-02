@@ -1,9 +1,7 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +18,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Untermenü von Notruf
+ */
 public class NotrufActivity extends AppCompatActivity {
     private String[] menuButtonNames;
     /**
@@ -49,28 +50,52 @@ public class NotrufActivity extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Rettung anrufen
+     * @param view
+     */
     public void ActionMenuButton1(View view) {
         doPhoneCall("144");
     }
 
+    /**
+     * Polizei anrufen
+     * @param view
+     */
     public void ActionMenuButton2(View view) {
         doPhoneCall("133");
     }
 
+    /**
+     * Feuerwehr anrufen
+     * @param view
+     */
     public void ActionMenuButton3(View view) {
         doPhoneCall("122");
     }
 
+    /**
+     * Notfallkontakt auswählen und anrufen
+     * @param view
+     */
     public void ActionMenuButton4(View view) {
         FileInputStream fis = null;
         StringBuilder sb = new StringBuilder();
@@ -103,6 +128,10 @@ public class NotrufActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);

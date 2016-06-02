@@ -1,7 +1,7 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 /**
- * Created by Benni on 22.05.2016.
+ * Klasse für Kontaktinformationen (Name, Nummer)
  */
 public class ContactInfo {
     private String name;

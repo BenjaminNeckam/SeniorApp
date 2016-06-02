@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/border"
-    tools:context="a1301917.at.ac.univie.hci.seniorapp.WriteMessageActivity">
+    tools:context="a1301917.at.ac.univie.hci.seniorapp.AddNumberActivity">
 
     <LinearLayout
         android:id="@+id/MenueChooseArea"
@@ -26,7 +26,7 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.2">
     <LinearLayout
@@ -41,20 +41,31 @@
 
 
     <EditText
+        android:id="@+id/insertName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:textSize="40sp"
+        android:layout_marginBottom="10sp"
+        android:hint="Name eingeben..."/>
+    <EditText
         android:id="@+id/insertNumber"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.4"
-        android:textSize="30sp"
-        android:hint="Bitte geben Sie hier eine Nummer ein..."/>
+        android:textSize="40sp"
+        android:layout_marginBottom="10sp"
+        android:hint="Nummer eingeben..."/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.2"
-        android:text="Anurfen"
-        android:textSize="25sp"
-        android:onClick="insertNumber"
+        android:text="Hinzufügen"
+        android:textSize="30sp"
+        android:onClick="addContact"
         android:background="@drawable/border"/>
+
         </LinearLayout>
     </ScrollView>
 
@@ -70,14 +81,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border"
-            android:onClick="BackToLastState">
+            android:background="@drawable/border">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="30sp"
-                android:text="Zurück" />
+                android:text="Zurück"
+                android:onClick="BackToLastState" />
         </RelativeLayout>
 
     </LinearLayout>

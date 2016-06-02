@@ -1,7 +1,7 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 /**
- * Created by penderiko on 28.04.16.
+ * Interface für Spracherkennung
  */
 public interface DialogHandler {
 

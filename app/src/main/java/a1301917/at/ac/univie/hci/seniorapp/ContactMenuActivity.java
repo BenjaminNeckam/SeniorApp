@@ -1,18 +1,17 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+/**
+ * Untermenü von Kontakte
+ */
 public class ContactMenuActivity extends AppCompatActivity {
     private String[] menuButtonNames;
     /**
@@ -42,24 +41,46 @@ public class ContactMenuActivity extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    /**
+     * Button für Menü zum anschalten
+     * @param view
+     */
     public void MenuOn(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button für Menü zum ausschalten
+     * @param view
+     */
     public void MenuOff(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button zum Aufrufen von AddNumberActivity
+     * @param view
+     */
     public void ActionMenuButton1(View view) {
-
+        Intent intent = new Intent(this, AddNumberActivity.class);
+        startActivity(intent);
     }
 
+    /**
+     * Button zum Aufrufen von ShowContactsDeleteActivity
+     * @param view
+     */
     public void ActionMenuButton2(View view) {
-
+        Intent intent = new Intent(this, ShowContactsDeleteActivity.class);
+        startActivity(intent);
     }
 
+    /**
+     * Button zum Aufrufen von ShowContactsNotrufActivity
+     * @param view
+     */
     public void ActionMenuButton3(View view) {
         Intent intent = new Intent(this, ShowContactsNotrufActivity.class);
         startActivity(intent);
@@ -68,6 +89,10 @@ public class ContactMenuActivity extends AppCompatActivity {
     public void ActionMenuButton4(View view) {
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view) {
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);

@@ -1,14 +1,14 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
+/**
+ * Untermenü von Nachrichten
+ */
 public class MenuMessagesActivity extends AppCompatActivity {
     private String[] menuButtonNames;
     private static final String TAG = "Message: ";
@@ -30,45 +30,72 @@ public class MenuMessagesActivity extends AppCompatActivity {
         menuButton4.setText(menuButtonNames[3]);
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü auszuschalten
+     * @param view
+     */
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um ChooseNumberContactActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton1(View view){
         Intent intent = new Intent(this, ChooseNumberContactActivity.class);
         startActivity(intent);
-
-        /*Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-        smsIntent.setData(Uri.parse("smsto:"));
-        smsIntent.setType("vnd.android-dir/mms-sms");
-        smsIntent.putExtra("address"  ,"");
-        smsIntent.putExtra("sms_body"  , "");
-
-        try {
-            Log.i(TAG,"Inside try-block");
-            startActivity(smsIntent);
-            finish();
-            Log.i(TAG,"After finish()");
-
-        }
-        catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(MenuMessagesActivity.this,
-                    "SMS faild, please try again later.", Toast.LENGTH_SHORT).show();
-        }*/
-
     }
 
+    /**
+     * Button um ShowMessagesActivity auszuführen
+     * @param view
+     */
+    public void ActionMenuButton2(View view){
+        Intent intent = new Intent(this, ShowMessagesActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Button um MenuMessagesActivity auszuführen
+     * @param view
+     */
+    public void ActionMenuButton3(View view){
+        Intent intent = new Intent(this, MenuMessagesActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Button um ShowSentMessagesActivity auszuführen
+     * @param view
+     */
+    public void ActionMenuButton4(View view){
+        Intent intent = new Intent(this, ShowSentMessagesActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * Zurück zur vorherigen Seite
+     */
     public void goBackToApp(){
         Intent intent = new Intent(this, MenuMessagesActivity.class);
         startActivity(intent);

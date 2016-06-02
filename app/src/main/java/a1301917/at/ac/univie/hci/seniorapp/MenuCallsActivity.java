@@ -1,20 +1,14 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.CallLog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
+/**
+ * Untermenü von Anrufe
+ */
 public class MenuCallsActivity extends AppCompatActivity {
     private String[] menuButtonNames;
 
@@ -36,36 +30,64 @@ public class MenuCallsActivity extends AppCompatActivity {
         menuButton4.setText(menuButtonNames[3]);
     }
 
+    /**
+     * Button um Menü anzuschalten
+     * @param view
+     */
     public void MenuOn(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um Menü aususchalten
+     * @param view
+     */
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um ShowContactsCallActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton1(View view){
         Intent intent = new Intent(this, ShowContactsCallActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um InsertNumberCallActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton2(View view){
         Intent intent = new Intent(this, InsertNumberCallActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um OutgoinCallsActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton3(View view){
         Intent intent = new Intent(this, OutgoingCallsActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Button um MissedCallsActivity auszuführen
+     * @param view
+     */
     public void ActionMenuButton4(View view){
         Intent intent = new Intent(this, MissedCallsActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Zurück zur vorherigen Seite
+     * @param view
+     */
     public void BackToLastState(View view){
         Intent intent = new Intent(this, MenuActivity.class);
         startActivity(intent);
