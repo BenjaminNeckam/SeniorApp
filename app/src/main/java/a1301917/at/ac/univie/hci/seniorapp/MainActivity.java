@@ -9,6 +9,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.List;
 import java.util.Vector;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         senior_handy = new VoiceAssistant(this);
         contacts = Util.getContacts(getContentResolver());
+        infoLinesCount=0;
     }
 
     /**
@@ -56,18 +59,54 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void GiveCommand(View view){
-        senior_handy.dialog("Bitte sprechen Sie", new DialogHandler() {
-            @Override
-            public void handle(String answer, VoiceAssistant voiceAssistant) {
-                Log.i("MainActivity","You said: " + answer);
-                for (ContactInfo info : contacts) {
-                    if (answer.toLowerCase().contains(info.getName().toLowerCase())) {
-                        Log.i("MainActivity","Calling " + info.getName());
-                        Util.doPhoneCall(MainActivity.this, info.getNumber());
-                    }
+        senior_handy.dialog("Bitte sprechen Sie", new DHRoot());
+    }
+
+    class DHRoot implements  DialogHandler {
+
+        @Override
+        public void handle(String answer, VoiceAssistant voiceAssistant) {
+            Log.i("MainActivity","You said: " + answer);
+            MainActivity.this.showInfo(answer);
+            for (ContactInfo info : contacts) {
+                if (answer.toLowerCase().contains(info.getName().toLowerCase())) {
+                    senior_handy.dialog("Wollen Sie " + info.getName() + " anrufen?",new DHCall(info));
+                    MainActivity.this.showInfo("Wollen Sie " + info.getName() + " anrufen");
+                    break;
                 }
             }
-        });
+        }
+    }
+
+    class DHCall implements DialogHandler {
+
+        private ContactInfo contactInfo;
+
+        DHCall(ContactInfo contactInfo) {
+            this.contactInfo = contactInfo;
+        }
+
+        @Override
+        public void handle(String answer, VoiceAssistant voiceAssistant) {
+            MainActivity.this.showInfo(answer);
+            if (answer.toLowerCase().contains("ja")) {
+                MainActivity.this.showInfo("ja");
+                Log.i("MainActivity", "Calling " + contactInfo.getName());
+                Util.doPhoneCall(MainActivity.this, contactInfo.getNumber());
+            }
+        }
+    }
+
+    private int infoLinesCount;
+    public void showInfo(String infoText) {
+
+        TextView textView = (TextView)MainActivity.this.findViewById(R.id.tv_diaLog);
+        textView.append(infoText + "\n");
+        if (++infoLinesCount > 5) {
+            String s = textView.getText().toString();
+            textView.setText(s.substring(s.indexOf('\n')+1));
+            --infoLinesCount;
+        }
     }
 
     /**

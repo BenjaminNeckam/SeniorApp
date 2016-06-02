@@ -39,6 +39,8 @@ public class VoiceAssistant {
     Result lastResult;
 
 
+
+
     public boolean ttsReady;
     ConditionVariable resultReady;
 
