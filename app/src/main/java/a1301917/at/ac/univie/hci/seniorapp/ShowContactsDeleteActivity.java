@@ -93,7 +93,7 @@ public class ShowContactsDeleteActivity extends AppCompatActivity {
     }
 
     public void setAdapter() {
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contactListResult);
+        adapter = new ArrayAdapter<String>(this, R.layout.my_listview_layout, contactListResult);
         listView.setAdapter(adapter);
     }
 

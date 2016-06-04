@@ -51,7 +51,7 @@ public class MissedCallsActivity extends AppCompatActivity {
             missedList.add(contactInfo.toString());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, missedList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.my_listview_layout, missedList);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

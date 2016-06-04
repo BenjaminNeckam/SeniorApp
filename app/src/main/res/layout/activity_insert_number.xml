@@ -24,22 +24,41 @@
             android:layout_weight="0.5"/>
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/insertNumber"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
-        android:textSize="30sp"
-        android:hint="Bitte geben Sie hier eine Nummer ein..."/>
-    <Button
+        android:layout_weight="0.6"
+        android:layout_gravity="center">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:text="Weiter zur Texteingabe"
-        android:textSize="25sp"
-        android:onClick="insertNumber"
-        android:background="@drawable/border"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/border">
 
+            <EditText
+                android:id="@+id/insertNumber"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:textSize="30sp"
+                android:hint="Bitte geben Sie hier eine Nummer ein..."/>
+            <!-- android:layout_weight="0.4" -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:text="Weiter zur Texteingabe"
+                android:textSize="25sp"
+                android:onClick="insertNumber"
+                android:background="@drawable/border"/>
+
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/ButtonArea"
         android:orientation="horizontal"

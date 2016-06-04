@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.Telephony.Sms;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  */
 public class ShowMessagesActivity extends AppCompatActivity  {
     ListView listView;
-    ArrayList<String> messageListResults;
+    ArrayList<MessageInfo> messageListResults;
     private static final String TAG = "Info: ";
     public final static String EXTRA_MESSAGE = "at.ac.univie.hci.seniorapp.MESSAGE";
     @Override
@@ -43,24 +44,35 @@ public class ShowMessagesActivity extends AppCompatActivity  {
             while(messageListResults.size()<=10 && cursor.moveToNext()){
                 String size = String.valueOf(messageListResults.size());
                 String message = cursor.getString(cursor.getColumnIndex(Sms.Inbox.BODY));
+                String messagePreview;
+                if(message.length()>=20){
+                    messagePreview = message.substring(0,20) + "...";
+                }else{
+                    messagePreview=message;
+                }
+
                 MessageInfo messageInfo = new MessageInfo();
                messageInfo.setMessage(message);
+                messageInfo.setMessagePreview(messagePreview);
                 number = cursor.getString(cursor.getColumnIndex(Sms.Inbox.ADDRESS));
                 messageInfo.setNumber(number);
 
-                    messageListResults.add(messageInfo.toString());
+                    //messageListResults.add(messageInfo.toString());
+                messageListResults.add(messageInfo);
             }
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, messageListResults);
+        ArrayAdapter<MessageInfo> adapter = new ArrayAdapter<MessageInfo>(this, R.layout.my_listview_layout, messageListResults);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int itemPosition = position;
-                String itemValue = (String) listView.getItemAtPosition(position);
-                String[]contactDetails = itemValue.split("\n");
-                ReadSms(contactDetails[0]);
+                MessageInfo messageInfo= messageListResults.get(position);
+                //String itemValue = (String) listView.getItemAtPosition(position);
+                ReadSms(messageInfo.getMessage());
+                //String[]contactDetails = itemValue.split("\n");
+                //ReadSms(contactDetails[0]);
             }
         });
     }

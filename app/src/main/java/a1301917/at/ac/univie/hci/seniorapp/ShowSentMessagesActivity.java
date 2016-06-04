@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class ShowSentMessagesActivity extends AppCompatActivity {
     ListView listView;
-    ArrayList<String> messageListResults;
+    ArrayList<MessageInfo> messageListResults;
     private static final String TAG = "Info: ";
     public final static String EXTRA_MESSAGE = "at.ac.univie.hci.seniorapp.MESSAGE";
     @Override
@@ -47,20 +47,29 @@ public class ShowSentMessagesActivity extends AppCompatActivity {
                 messageInfo.setMessage(message);
                 number = cursor.getString(cursor.getColumnIndex(Telephony.Sms.Sent.ADDRESS));
                 messageInfo.setNumber(number);
+                String messagePreview;
+                if(message.length()>=20){
+                    messagePreview = message.substring(0,20) + "...";
+                }else{
+                    messagePreview=message;
+                }
+                messageInfo.setMessagePreview(messagePreview);
 
-                messageListResults.add(messageInfo.toString());
+                messageListResults.add(messageInfo);
             }
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, messageListResults);
+        ArrayAdapter<MessageInfo> adapter = new ArrayAdapter<MessageInfo>(this, R.layout.my_listview_layout, messageListResults);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int itemPosition = position;
-                String itemValue = (String) listView.getItemAtPosition(position);
+                /*String itemValue = (String) listView.getItemAtPosition(position);
                 String[] contactDetails = itemValue.split("\n");
-                ReadSms(contactDetails[0]);
+                ReadSms(contactDetails[0]);*/
+                MessageInfo messageInfo= messageListResults.get(position);
+                ReadSms(messageInfo.getMessage());
             }
         });
     }

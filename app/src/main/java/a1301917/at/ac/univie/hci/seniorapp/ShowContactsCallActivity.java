@@ -76,7 +76,7 @@ public class ShowContactsCallActivity extends AppCompatActivity {
             }
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contactListResult);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.my_listview_layout, contactListResult);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
