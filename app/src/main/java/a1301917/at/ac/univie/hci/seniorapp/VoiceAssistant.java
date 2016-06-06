@@ -36,6 +36,8 @@ public class VoiceAssistant {
     private SpeechRecognizer sro;
     private Context applicationContext;
 
+
+    private boolean paused;
     Result lastResult;
 
 
@@ -54,13 +56,30 @@ public class VoiceAssistant {
         SRIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "de-AT");
         SRIntent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,  activity.getApplication().getPackageName());
 
-        sro = SpeechRecognizer.createSpeechRecognizer(applicationContext);
+
 
         //resultReady = new ConditionVariable();
 
-        listener = new a1301917.at.ac.univie.hci.seniorapp.SRListener(this);
-        sro.setRecognitionListener(listener);
+        listener = new SRListener(this);
+        paused = true;
 
+        resume();
+    }
+
+    public void pause() {
+        sro.destroy();
+
+        tts.stop();
+        tts.shutdown();
+        ttsReady = false;
+
+        paused = true;
+    }
+
+    public void resume() {
+        if (!paused) return;
+        sro = SpeechRecognizer.createSpeechRecognizer(applicationContext);
+        sro.setRecognitionListener(listener);
         tts = new TextToSpeech(applicationContext, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -69,6 +88,7 @@ public class VoiceAssistant {
                 }
             }
         });
+        paused = false;
     }
 
     private Thread runner;
@@ -77,7 +97,7 @@ public class VoiceAssistant {
 
     }
 
-    public void dialog(String iSaid, DialogHandler dialogHandler) {
+    public void dialog(String iSaid, final DialogHandler dialogHandler) {
 
         listener.setDialogHandler(dialogHandler);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -90,6 +110,7 @@ public class VoiceAssistant {
                 @Override
                 public void onDone(String utteranceId) {
                     Log.i("VoiceAssistant", "Done talking");
+                    if (dialogHandler == null) return;
                     Handler handler = new Handler(applicationContext.getMainLooper());
                     handler.post(new Runnable() {
                         @Override

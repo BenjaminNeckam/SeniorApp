@@ -12,6 +12,8 @@ import android.widget.TextView;
  */
 public class ReadMessageActivity extends AppCompatActivity {
 
+    private VoiceAssistant va;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,19 @@ public class ReadMessageActivity extends AppCompatActivity {
         textView.setMovementMethod(new ScrollingMovementMethod());
         String message = getIntent().getStringExtra(ShowMessagesActivity.EXTRA_MESSAGE);
         textView.setText(message);
+        va = new VoiceAssistant(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        va.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        va.resume();
     }
 
     /**
@@ -38,6 +53,11 @@ public class ReadMessageActivity extends AppCompatActivity {
     public void MenuOff(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+    }
+
+    public void reciteSMS(View view) {
+        CharSequence text = ((TextView)view).getText();
+        va.say(text.toString());
     }
 
     /**

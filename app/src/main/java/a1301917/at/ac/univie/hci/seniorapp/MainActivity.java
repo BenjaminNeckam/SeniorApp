@@ -37,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
         infoLinesCount=0;
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        senior_handy.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        senior_handy.resume();
+    }
+
     /**
      * Button um Menü anzuschalten
      * @param view
