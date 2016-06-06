@@ -21,20 +21,23 @@
 
             android:layout_height="0dp"
             android:layout_width="match_parent"
-            android:layout_weight="0.2"/>
+            android:layout_weight="0.5"/>
     </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:layout_gravity="center">
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/MainArea"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.20"
+        android:layout_height="match_parent"
         android:background="@drawable/border"
         android:layout_gravity="center"
         android:padding="1dp">
@@ -57,7 +60,7 @@
         android:background="@drawable/border"/>
         </LinearLayout>
     </ScrollView>
-
+</LinearLayout>
     <LinearLayout
         android:id="@+id/ButtonArea"
         android:orientation="horizontal"

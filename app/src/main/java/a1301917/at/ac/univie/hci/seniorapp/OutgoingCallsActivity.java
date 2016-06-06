@@ -52,7 +52,7 @@ public class OutgoingCallsActivity extends AppCompatActivity {
             outgoingList.add(contactInfo.toString());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, outgoingList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.my_listview_layout, outgoingList);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

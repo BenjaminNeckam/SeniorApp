@@ -6,6 +6,7 @@ package a1301917.at.ac.univie.hci.seniorapp;
 public class MessageInfo {
     private String number;
     private String message;
+    private String messagePreview;
     private String name;
 
     public void setName(String name){
@@ -20,6 +21,10 @@ public class MessageInfo {
         this.message = name;
     }
 
+    public void setMessagePreview(String name){
+        this.messagePreview = name;
+    }
+
     public void setNumber(String number){
         this.number = number;
     }
@@ -28,11 +33,15 @@ public class MessageInfo {
         return message;
     }
 
+    public String getMessagePreview(){
+        return messagePreview;
+    }
+
     public String getNumber(){
         return number;
     }
 
     public String toString(){
-        return message + "\n" + number;
+        return messagePreview + "\n" + number;
     }
 }
