@@ -1,8 +1,12 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.BaseColumns;
+import android.provider.ContactsContract;
 import android.provider.Telephony.Sms;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -41,7 +45,7 @@ public class ShowMessagesActivity extends AppCompatActivity  {
         }
 
         if(cursor.getCount()>0){
-            while(messageListResults.size()<=10 && cursor.moveToNext()){
+            while(messageListResults.size()<=20 && cursor.moveToNext()){
                 String size = String.valueOf(messageListResults.size());
                 String message = cursor.getString(cursor.getColumnIndex(Sms.Inbox.BODY));
                 String messagePreview;
@@ -56,7 +60,8 @@ public class ShowMessagesActivity extends AppCompatActivity  {
                 messageInfo.setMessagePreview(messagePreview);
                 number = cursor.getString(cursor.getColumnIndex(Sms.Inbox.ADDRESS));
                 messageInfo.setNumber(number);
-
+                String name = getContactByNumber(number);
+                messageInfo.setName(name);
                     //messageListResults.add(messageInfo.toString());
                 messageListResults.add(messageInfo);
             }
@@ -113,6 +118,27 @@ public class ShowMessagesActivity extends AppCompatActivity  {
         //intent.setData(Uri.parse("tel:"+phoneNumber));
         intent.putExtra(EXTRA_MESSAGE,message);
         startActivity(intent);
+    }
+
+    public String getContactByNumber(String number){
+        Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI,Uri.encode(number));
+        String name = null;
+
+        ContentResolver contentResolver = getContentResolver();
+        Cursor cursor = contentResolver.query(uri,new String[] {BaseColumns._ID,ContactsContract.PhoneLookup.DISPLAY_NAME},null,null,null);
+
+        try{
+            if(cursor != null && cursor.getCount()>0){
+                cursor.moveToNext();
+                name = cursor.getString(cursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));
+            }
+        }finally {
+            if(cursor != null){
+                cursor.close();
+            }
+        }
+
+        return name;
     }
 
 }

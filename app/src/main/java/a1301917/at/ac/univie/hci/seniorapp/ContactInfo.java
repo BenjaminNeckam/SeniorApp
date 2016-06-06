@@ -26,4 +26,6 @@ public class ContactInfo {
     public String toString(){
         return name + "\n" + number;
     }
+
+
 }
