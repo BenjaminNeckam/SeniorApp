@@ -42,6 +42,10 @@ public class MessageInfo {
     }
 
     public String toString(){
-        return messagePreview + "\n" + number;
+        if(name==null){
+            return messagePreview + "\n" + number;
+        }else{
+            return messagePreview + "\n" + name;
+        }
     }
 }

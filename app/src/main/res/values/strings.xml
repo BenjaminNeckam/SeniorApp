@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">SeniorApp</string>
+    <string name="sms_received">Sie haben eine Nachricht erhalten.\n Wollen Sie sie lesen?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
     <string-array name="menue_button_names">
         <item>Nachrichten</item>
         <item>Anrufe</item>
