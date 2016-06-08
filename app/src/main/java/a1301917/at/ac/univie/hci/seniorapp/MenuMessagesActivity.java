@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class MenuMessagesActivity extends AppCompatActivity {
     private String[] menuButtonNames;
     private static final String TAG = "Message: ";
+    public final static String EXTRA_MESSAGE = "at.ac.univie.hci.seniorapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +73,7 @@ public class MenuMessagesActivity extends AppCompatActivity {
      */
     public void ActionMenuButton2(View view){
         Intent intent = new Intent(this, ShowMessagesActivity.class);
+        intent.putExtra(EXTRA_MESSAGE,"false");
         startActivity(intent);
     }
 
@@ -80,7 +82,8 @@ public class MenuMessagesActivity extends AppCompatActivity {
      * @param view
      */
     public void ActionMenuButton3(View view){
-        Intent intent = new Intent(this, MenuMessagesActivity.class);
+        Intent intent = new Intent(this, ShowMessagesActivity.class);
+        intent.putExtra(EXTRA_MESSAGE,"true");
         startActivity(intent);
     }
 

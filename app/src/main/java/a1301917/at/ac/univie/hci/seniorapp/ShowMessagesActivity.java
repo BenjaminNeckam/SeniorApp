@@ -31,6 +31,7 @@ public class ShowMessagesActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_show_messages);
         listView = (ListView) findViewById(R.id.messagesList);
         messageListResults = new ArrayList<>();
+        Log.i(TAG,"Befor showSms()");
         showSms();
     }
 
@@ -38,6 +39,7 @@ public class ShowMessagesActivity extends AppCompatActivity  {
      * Sms aus Inbox laden und anzeigen
      */
     public void showSms() {
+        Log.i(TAG,"In showSms()");
         String number;
         Cursor cursor = null;
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
@@ -114,10 +116,18 @@ public class ShowMessagesActivity extends AppCompatActivity  {
      * @param message
      */
     public void ReadSms(String message){
-        Intent intent = new Intent(this,ReadMessageActivity.class);
-        //intent.setData(Uri.parse("tel:"+phoneNumber));
-        intent.putExtra(EXTRA_MESSAGE,message);
-        startActivity(intent);
+        if(getIntent().getStringExtra(MenuMessagesActivity.EXTRA_MESSAGE).equals("false")){
+            Intent intent = new Intent(this,ReadMessageActivity.class);
+            //intent.setData(Uri.parse("tel:"+phoneNumber));
+            intent.putExtra(EXTRA_MESSAGE,message);
+            startActivity(intent);
+        }else if(getIntent().getStringExtra(MenuMessagesActivity.EXTRA_MESSAGE).equals("true")){
+            Intent intent = new Intent(this,ReadOutMessageActivity.class);
+            //intent.setData(Uri.parse("tel:"+phoneNumber));
+            intent.putExtra(EXTRA_MESSAGE,message);
+            startActivity(intent);
+        }
+
     }
 
     public String getContactByNumber(String number){
