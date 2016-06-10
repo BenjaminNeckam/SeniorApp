@@ -1,9 +1,12 @@
 package a1301917.at.ac.univie.hci.seniorapp;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -28,6 +31,7 @@ public class NotrufActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +127,20 @@ public class NotrufActivity extends AppCompatActivity {
             }
         }
 
-        if (!sb.toString().isEmpty()) {
+        if (sb.toString().isEmpty()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+            builder.setMessage("Es wurde kein Notfallkontakt ausgewählt!").setTitle("Notfallkontakt");
+
+            builder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int id) {
+                    dialog.cancel();
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        } else {
             doPhoneCall(sb.toString());
         }
     }
