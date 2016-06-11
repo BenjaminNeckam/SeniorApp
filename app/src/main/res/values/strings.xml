@@ -7,7 +7,7 @@
         <item>Nachrichten</item>
         <item>Anrufe</item>
         <item>Kontakte</item>
-        <item>Notruf</item>
+        <item>Notruf Menü</item>
     </string-array>
     <string-array name="calls_button_names">
         <item>Kontakt auswählen</item>

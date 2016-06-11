@@ -21,40 +21,39 @@
 
             android:layout_height="0dp"
             android:layout_width="match_parent"
-            android:layout_weight="0.2"/>
+            android:layout_weight="0.5"/>
     </LinearLayout>
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2">
     <LinearLayout
-        android:id="@+id/MainArea"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.20"
-        android:background="@drawable/border"
-        android:layout_gravity="center"
-        android:padding="1dp">
+        android:layout_weight="0.6"
+        android:layout_gravity="center">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/border">
 
     <EditText
         android:id="@+id/insertName"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
-        android:textSize="40sp"
-        android:layout_marginBottom="10sp"
+        android:layout_weight="0.3"
+        android:textSize="30sp"
         android:hint="Name eingeben..."/>
     <EditText
         android:id="@+id/insertNumber"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.4"
-        android:textSize="40sp"
-        android:layout_marginBottom="10sp"
+        android:layout_weight="0.3"
+        android:textSize="30sp"
+        android:inputType="number"
         android:hint="Nummer eingeben..."/>
 
     <Button
@@ -62,12 +61,13 @@
         android:layout_height="0dp"
         android:layout_weight="0.2"
         android:text="Hinzufügen"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:onClick="addContact"
         android:background="@drawable/border"/>
 
         </LinearLayout>
     </ScrollView>
+        </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ButtonArea"
@@ -90,6 +90,6 @@
                 android:text="Zurück"
                 android:onClick="BackToLastState" />
         </RelativeLayout>
-
     </LinearLayout>
 </LinearLayout>
+
